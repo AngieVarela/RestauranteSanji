@@ -25,14 +25,39 @@
                 </div>
                 <div class="col-12 col-md-7">
                     <h2>Registro de platos</h2>
-                    <form>
+                    <form method="POST">
                         {{formulario}}
+                        {% csrf_token %}
                         <button type="submit" class="btn btn-success w-100">Enviar</button>
                     </form>
                 </div>
             </div>
         </div>
     </main>
+
+
+    <footer class="footer" style="background-color: #000000">
+        <div class="container mt-5" >
+            <div class="row" style="color: aliceblue;">
+                <div class="col-12 col-md-5">
+                    <img src="../static/img/foot.jpg" alt="foot" class="img-fluid w-100">
+                </div>
+                <div class="col-12 col-md-7">
+                    <h3>Dirección</h3><br>
+                    <h5>Medellín: Calle 7d #43c-36<br>
+                        Bogotá: Calle 70 #4-47<br>
+                        Cali: Calle 41e #37-16<br><br><br>
+                    </h5>
+
+                    <h3>Horarios</h3><br>
+                    <h5>Lunes a Sábado: 12:00 a 3:00pm - 7:00pm a 10:00pm. <br>
+                        Domingos y festivos de 12:00pm a 4:00pm.
+                    </h5>
+                </div>
+            </div>
+            </div>
+        </div>
+    </footer>
     
 </body>
 </html>

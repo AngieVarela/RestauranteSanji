@@ -3,10 +3,10 @@ from django import forms
 class FormularioEmpleados (forms.Form):
 
     CARGO=(
-        (1,'cheff'),
-        (2,'administrados'),
-        (3,'mesero'),
-        (3,'ayudante'),
+        (1,'Cheff'),
+        (2,'Administrador'),
+        (3,'Mesero'),
+        (3,'Ayudante'),
     )
 
     nombre=forms.CharField(
