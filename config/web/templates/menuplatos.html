@@ -9,13 +9,25 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/styles/estilosHome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
     <header>
         {% include './shared/menu.html'%}
     </header>
 
-    <br><br>
+    <br><br><br>
+
+    {% if bandera %}
+    <script>
+        Swal.fire(
+            'Good job!',
+            'You clicked the button!',
+            'success'
+        )
+      </script>
+    {% endif %}
 
     <main>
         <div class="container mt-5">
@@ -34,6 +46,17 @@
             </div>
         </div>
     </main>
+
+    <section>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-4">
+                {% for plato in platos %}
+                <h1>{{plato.nombre}}</h1>
+                {% endfor %}
+            </div>
+        </div>
+    
+    </section>
 
 
     <footer class="footer" style="background-color: #000000">

@@ -11,13 +11,13 @@ class FormularioEmpleados (forms.Form):
 
     nombre=forms.CharField(
         required=True,
-        max_length=5,
+        max_length=10,
         label='Nombre Empleado: ',
         widget=forms.TextInput(attrs={'class': 'form-control mb-3'})
     )
     apellidos=forms.CharField(
         required=True,
-        max_length=5,
+        max_length=10,
         widget=forms.TextInput(attrs={'class': 'form-control mb-3'})
     )
     fotografia=forms.CharField(

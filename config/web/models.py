@@ -122,6 +122,19 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 
+class Empleados(models.Model):
+    nombre = models.CharField(max_length=50)
+    descripcion = models.CharField(max_length=200)
+    fotografia = models.CharField(max_length=100)
+    precio = models.IntegerField()
+    tipo = models.IntegerField()
+    apellidos = models.CharField(max_length=50)
+
+    class Meta:
+        managed = False
+        db_table = 'empleados'
+
+
 class Platos(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=100)
@@ -129,20 +142,6 @@ class Platos(models.Model):
     precio = models.IntegerField()
     tipo = models.IntegerField()
 
-
     class Meta:
         managed = False
         db_table = 'platos'
-
-
-class Empleados(models.Model):
-    nomempleado = models.CharField(max_length=50)
-    apellidos = models.CharField(max_length=50)
-    fotografia = models.CharField(max_length=200)
-    cargo = models.CharField(max_length=50)
-    salario = models.IntegerField()
-    contacto = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'empleados'

@@ -15,13 +15,21 @@ def Home(request):
     return render(request,'home.html')
 
 def PlatosVista(request):
+
+    #rutina para consulta de platos
+    platosConsultados=Platos.objects.all()
+    print(platosConsultados)
+
+
     #Esta vista utilizara un formulario django
     #Debor crear un objeto de la clase FormularioPlatos()
     formulario=FormularioPlatos()
 
     #Creamos un diccionario para enviar el formulario al HTML(template)
     data={
-        'formulario': formulario
+        'formulario': formulario,
+        'bandera': False,
+        'platos': platosConsultados
     }
     
     #RECIBIMOS LOS DATOS DEL FORMULARIO
@@ -42,6 +50,7 @@ def PlatosVista(request):
             #Intentare llevar mis datos a BD
             try: 
                 platoNuevo.save()
+                data["bandera"]=True
                 print("Exito guardando...")
             except Exception as error:
                 print("Upss", error)
@@ -52,7 +61,8 @@ def PlatosVista(request):
 def EmpleadoVista(request):
     formularioe=FormularioEmpleados()
     data={
-        'formularioe': formularioe
+        'formularioe': formularioe,
+        'bandera': False,
     }
     
     if request.method=="POST":
@@ -63,7 +73,7 @@ def EmpleadoVista(request):
             
             #CONSTRUIR UN DICCIONARIO DE ENVIO DE DATOS HACIA LA DB
             empleadoNuevo=Empleados(
-                nomempleado=datosLimpiose["nomempleado"],
+                nombre=datosLimpiose["nombre"],
                 apellidos=datosLimpiose["apellidos"],
                 fotografia=datosLimpiose["fotografia"],
                 cargo=datosLimpiose["cargo"],
@@ -72,6 +82,7 @@ def EmpleadoVista(request):
             )
             try: 
                 empleadoNuevo.save()
+                data["bandera"]=True
                 print("Exito guardando...")
             except Exception as error:
                 print("Upss", error)
