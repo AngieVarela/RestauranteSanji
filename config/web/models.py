@@ -124,11 +124,11 @@ class DjangoSession(models.Model):
 
 class Empleados(models.Model):
     nombre = models.CharField(max_length=50)
-    descripcion = models.CharField(max_length=200)
-    fotografia = models.CharField(max_length=100)
-    precio = models.IntegerField()
-    tipo = models.IntegerField()
     apellidos = models.CharField(max_length=50)
+    fotografia = models.CharField(max_length=200)
+    cargo = models.CharField(max_length=50)
+    salario = models.IntegerField()
+    contacto = models.IntegerField()
 
     class Meta:
         managed = False
