@@ -19,11 +19,21 @@
     
     <br><br>
 
+    {% if bandera %}
+    <script>
+        Swal.fire(
+            'Good job!',
+            'You clicked the button!',
+            'success'
+        )
+    </script>
+    {% endif %}
+
     <main>
         <div class="container mt-5">
             <div class="row">
                 <div class="col-12 col-md-7">
-                    <h2>Registro de Empleados</h2>
+                    <h2 style="font-family: forte;">Registro de Empleados</h2>
                     <form method="POST">
                         {{formularioe}}
                         {% csrf_token %}
@@ -37,25 +47,53 @@
         </div>
     </main>
 
-    <footer class="footer" style="background-color: #000000">
-        <div class="container mt-5" >
-            <div class="row" style="color: aliceblue;">
-                <div class="col-12 col-md-5">
-                    <img src="../static/img/foot.jpg" alt="foot" class="img-fluid w-100">
-                </div>
-                <div class="col-12 col-md-7">
-                    <h3>Dirección</h3><br>
-                    <h5>Medellín: Calle 7d #43c-36<br>
-                        Bogotá: Calle 70 #4-47<br>
-                        Cali: Calle 41e #37-16<br><br><br>
-                    </h5>
+    <hr>
 
-                    <h3>Horarios</h3><br>
-                    <h5>Lunes a Sábado: 12:00 a 3:00pm - 7:00pm a 10:00pm. <br>
-                        Domingos y festivos de 12:00pm a 4:00pm.
-                    </h5>
+    <section>
+        <div class="container"><br>
+            <h1 class="text-center fw-bold" style="font-family: forte;">NUESTROS EMPLEADOS</h1>
+            <div class="row row-cols-1 row-cols-md-3 g-3 my-3">
+                {% for empleado in empleados %}
+                <div class="col">
+                    <div class="card h-100 shadow">
+                        <img src="{{empleado.fotografia}}}" class="img-fluid w-100 h-100" alt="..."><br>
+                        <h5 class="text-center fw-bold">{{empleado.nombre}}</h5>
+                        <h5 class="text-center text-muted">{{empleado.cargo}}</h5><br>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-3 my-2">
+                    <img src="../static/img/foot.jpg" alt="foot" height="100px" width="200px">
+                </div>
+                <div class="col-12 col-md-3 my-3">
+                    <span>
+                        📌 Dirección: Crr 28 F #111-45
+                        <br>
+                        Parque Lleras - Medellin, Antiquia
+                    </span>
+                </div>
+                <div class="col-12 col-md-3 my-3">
+                    <span>
+                        📞 Telefono: +57 301-370-2710
+                        <br>
+                        📩 Email: sanji@gmail.com
+                    </span>
+                </div>
+                <div class="col-12 col-md-3 my-3">
+                    <span>
+                        Facebook: @sanjirestaurante
+                    </span><br>
+                    <span>
+                        Instagram: @restaurantesanji
+                    </span>
+                </div>
             </div>
         </div>
     </footer>
